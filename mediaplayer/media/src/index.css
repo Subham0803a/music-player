@@ -1,0 +1,61 @@
+.music-player{
+  display: grid;
+  text-align:center;
+  margin-top: 400px;
+
+}
+
+body {
+  background-color: rgb(43, 120, 150);
+}
+
+h1 {
+  color: white;
+  font-size: 22px;
+  font-family: 'georgia';
+  font-weight: bold
+  
+}
+
+.music-player button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#playpause-btn {
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  border-radius: 100%;
+  height: 60px;
+  width: 63px;
+}
+
+#previous-btn{
+  color: rgb(0, 0, 0);
+  border-radius: 60%;
+  
+}
+
+#next-btn{
+  color: rgb(0, 0, 0);
+  border-radius: 60%;
+   
+}
+
+.music-player button:hover {
+  background-color: #e0e0e0;
+}
+
+#playpause-btn:hover {
+  background-color: rgb(107, 209, 220);
+}
+
+#previous-btn:hover, #next-btn:hover {
+  background-color: rgb(107, 209, 220);
+}
+
+ 
