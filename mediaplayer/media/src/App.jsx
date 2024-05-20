@@ -67,11 +67,12 @@ function App() {
     event.preventDefault();
 
     const formData = new FormData();
+    console.log(formData)
     formData.append('file', file);
-    console.log(file.name)
+    console.log(file.name,formData)
     setFiles((files) => [...files, file.name])
 
-    fetch('http://127.0.0.1:8000/upload/', {
+    await fetch('http://127.0.0.1:8000/upload/', {
       method: 'POST',
       body: formData,
     })
@@ -79,7 +80,7 @@ function App() {
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
 
-    await fetchmusic(files[currentsongindex])
+    // await fetchmusic(files[currentsongindex])
 
   };
 
