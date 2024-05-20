@@ -14,36 +14,10 @@ fs = GridFS(db)
 
 @csrf_exempt
 def upload_music(request):
-    if request.method != 'POST':
-        return HttpResponseBadRequest('Method Not Allowed')
-
-    if not request.FILES.get('music'):
-        return HttpResponseBadRequest('No music file provided')
-
-    music_file = request.FILES['music']
-
-    if not music_file.content_type.startswith('audio/'):
-        return HttpResponseBadRequest('Only audio files allowed')
-
-    try:
-        filename = music_file.name  # Extract filename from request
-
-        
-
-        # Create a new document in the 'media' collection
-        file_metadata = {
-            'filename': filename,
-            # Add additional metadata fields as needed (e.g., size, content type)
-        }
-        db.media.insert_one(file_metadata)
-
-        # Save the file to GridFS
-        file_id = fs.put(music_file.read(), filename=filename)
-
-        return JsonResponse({'message': 'True'})
-    except Exception as e:
-        print(f'Error uploading music: {e}')
-        return JsonResponse({'message': 'False', 'error': str(e)})
+    if request.method == 'POST':
+        file=request.FILES['file']
+        fs.put(file,filename=file.name)
+        return JsonResponse({"success":True})
 
 
 @csrf_exempt
