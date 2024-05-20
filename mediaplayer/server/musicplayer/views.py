@@ -16,8 +16,6 @@ fs = GridFS(db)
 def upload_music(request):
     if request.method == 'POST':
         file=request.FILES['file']
-        filename = file.name
-        print(filename)
         fs.put(file,filename=file.name)
         return JsonResponse({"success":True})
 
